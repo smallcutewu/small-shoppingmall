@@ -27,5 +27,9 @@ public class CartServiceImpl implements CartService {
     public int updateCart(ShoppingCart cart) {
         return cartDao.updateCart(cart);
     }
+    public int deleteCart(int id)
+    {
+    	return cartDao.deleteCart(id);
+    }
 
 }

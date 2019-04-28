@@ -8,5 +8,5 @@ public interface CartService {
     ShoppingCart findByUserId(int userId);
 
     int updateCart(ShoppingCart cart);
-
+    public int deleteCart(int id);
 }

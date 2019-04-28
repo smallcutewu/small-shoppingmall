@@ -15,4 +15,6 @@ public interface CartDao {
     @Update("update shoppingcart set goodsIds=#{goodsIds}, goodsNums=#{goodsNums}, updateTime=NOW()"
             + " where userId=#{userId}")
     public int updateCart(ShoppingCart cart);
+    @Delete("delete from shoppingcart  where userId=#{id}")
+    public int deleteCart(int id);
 }

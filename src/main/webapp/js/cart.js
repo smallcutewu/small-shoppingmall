@@ -15,15 +15,18 @@ $(function () {
 
                     if (goodsList != null && goodsList.length > 0) {
                         var str = "<tr>" +
+                            "<th>" + '内容图片' + "</th>" +
                             "<th>" + '内容名称' + "</th>" +
                             "<th>" + '数量' + "</th>" +
                             "<th>" + '价格' + "</th>" +
+                          
                             "</tr>";
 
                         for (var i = 0; i < goodsList.length; i++) {
                             if (goodsList[i] != null) {
                                 str = str +
                                     "<tr>" +
+                                    "<td><img src=\"" + goodsList[i].picUrl + "\" alt=\"\"></a></td>" + 
                                     "<td>" + goodsList[i].name + "</td>" +
                                     "<td>" +
                                     "<span class=\"lessNum\">" + "-" + "</span>" +
@@ -31,6 +34,7 @@ $(function () {
                                     "<span title=\"goodsId\" id=\"thisId\">" + goodsList[i].id + "</span>" +
                                     "<span class=\"moreNum\">" + "+" + "</span>" + "</td>" +
                                     "<td title=\"price\">" + goodsList[i].price + "</td>" +
+                                    
                                     "</tr>";
                             }
                         }
@@ -111,3 +115,36 @@ function buy() {
         }.bind(this)
     }).show();
 }
+function del() {
+    var loading = new Loading();
+    var layer = new Layer();
+
+    layer.reset({
+        content: '确认清空吗？',
+        onconfirm: function () {
+            layer.hide();
+            loading.show();
+            var user = getUser();
+            var userid = user.id;
+            $.ajax({
+                url: '../hello/deletecart.do',
+                data: {userid:userid},
+                success: function (json) {
+                    if (json.code == 200) {
+                        loading.result('删除成功', function () {
+                            location.href = 'cart.html';
+                        });
+                    } else if (json.code == -1) {
+                        delCookie("user");
+                        location.href = getIndexHtml();
+                    }
+                },
+                error: function () {
+                    loading.result('失败');
+                }
+            });
+
+        }.bind(this)
+    }).show();
+}
+

@@ -76,7 +76,25 @@ public class CartController {
 
         return map;
     }
-
+/*
+ * 清空购物车。
+ */
+    @RequestMapping(value="/deletecart.do")
+    @ResponseBody
+    public Map<String, Object> Deletecart(HttpServletRequest request,
+                                      @RequestParam("userid") int userid)
+    {
+    	Map<String,Object> map=new HashMap<String,Object>();
+    	
+    	
+    	if(cartServiceImpl.deleteCart(userid)!=0)
+    		map.put("code", 200);
+    	else
+    		map.put("code", -1);
+    	return map;
+    }
+    
+    
     @RequestMapping(value = "/MyCart.do")
     @ResponseBody
     public Map<String, Object> MyCart(HttpServletRequest request,
@@ -109,5 +127,6 @@ public class CartController {
 
         return map;
     }
+   
 
 }
