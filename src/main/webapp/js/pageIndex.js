@@ -51,7 +51,7 @@ window.onload = function () {
     if (window.location.pathname.indexOf("html/") > 0)  //表明已经在html目录下
         loginUrl = "login.html";
     $("#indexhead").html(
-    "请<a href=\""+ loginUrl +"\">[登录]</a>"
+    "<a href=\""+ loginUrl +"\">[登录]</a>"
     );
     var user = getUser();
     if (user != null && user.type == 0) {

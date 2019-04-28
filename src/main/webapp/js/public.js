@@ -4,7 +4,7 @@ $(function () {
     if (getval != null && getval.length > 0) {
         var showval = getval.split("=")[1];
         $.ajax({
-            url: '/hello/goodsDetail',
+            url: '../hello/goodsDetail',
             type: 'POST',
             data: {goodsId: showval},
             dataType: 'json',

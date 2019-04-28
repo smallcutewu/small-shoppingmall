@@ -209,7 +209,7 @@ $(function () {
             location.href = loginUrl;
             return;
         }
-        $("#welcome").html("请<a href=\"" + loginUrl + "\">[登录]</a>");
+        $("#welcome").html("<a href=\"" + loginUrl + "\">[登录]</a>");
         $("#items").html("<li><a href=\""+ indexUrl +"\">首页</a></li>");
     } else {
         var name = user.name;
