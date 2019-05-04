@@ -54,7 +54,7 @@ window.onload = function () {
     "<a href=\""+ loginUrl +"\">[登录]</a>"
     );
     var user = getUser();
-    if (user != null && user.type == 0) {
+    if (user != null && user.type == 0) {//已购买判别
         $("#contentUl").append("<li id=\"noBuy\" onclick=\"changeContent(1)\"><a>未购买的内容</a></li>");
         status = "<span class=\"had\"><b>已购买</b></span>";
         $.ajax({
@@ -102,7 +102,7 @@ window.onload = function () {
                     if ($.inArray(goods.id + "", ids) != -1)
                         status2 = status;
                     else {
-                        if (user != null && user.type == 1)
+                        if (user != null && user.type == 1)//判别是否是卖家
                             delStr = "<span class=\"u-btn u-btn-normal u-btn-xs del\" onclick=\"deleteGoods(" + goods.id + ");\">删除</span>";
                     }
                     $("#plist").append(

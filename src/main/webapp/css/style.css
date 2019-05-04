@@ -6,6 +6,7 @@ html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, 
 header, footer, section, article, aside, nav, hgroup, address, figure, figcaption, menu, details {
     display: block;
 }
+
 html, body
 {
 	filter:alpha(opacity=20);  
